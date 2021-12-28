@@ -156,6 +156,7 @@ def train_run():#Hàm chạy train
     #Chạy vòng lặp cho tới khi episode đạt đến NUM_EP_TRAIN.
         episode_reset() # thiết lập lại episode sau mỗi tập
         episode += 1 #tăng bộ đếm episode
+        print(episode)
         done = False #thiết lập done = false
         state = state_tracker.get_state() #Lấy lại state ban đầu bằng state_tracker.get_state()
         while not done:#Chạy vòng lặp cho đến khi done=TRUE (episode kết thúc)
