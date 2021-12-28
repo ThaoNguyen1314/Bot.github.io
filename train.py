@@ -156,7 +156,6 @@ def train_run():#Hàm chạy train
     #Chạy vòng lặp cho tới khi episode đạt đến NUM_EP_TRAIN.
         episode_reset() # thiết lập lại episode sau mỗi tập
         episode += 1 #tăng bộ đếm episode
-        print(episode)
         done = False #thiết lập done = false
         state = state_tracker.get_state() #Lấy lại state ban đầu bằng state_tracker.get_state()
         while not done:#Chạy vòng lặp cho đến khi done=TRUE (episode kết thúc)
@@ -173,8 +172,7 @@ def train_run():#Hàm chạy train
             # Check success rate (kiểm tra tỉ lệ success)
             success_rate = period_success_total / TRAIN_FREQ # success_rate = period_success_total chia cho số lần TRAIN_FREQ
             avg_reward = period_reward_total / TRAIN_FREQ 
-            suc.write("{}\n".format(success_rate)) 
-            avg.write("{}\n".format(avg_reward)) 
+            print(episode, success_rate, avg_reward)
             
             # Flush
             if success_rate >= success_rate_best and success_rate >= SUCCESS_RATE_THRESHOLD:
